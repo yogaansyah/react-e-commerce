@@ -187,7 +187,7 @@ function Cart() {
                                     <NumberFormat
                                         thousandsGroupStyle="thousand"
                                         value={totalCartPrice}
-                                        prefix="$ "
+                                        prefix="Rp "
                                         displayType="text"
                                         thousandSeparator={true}
                                     />
@@ -200,7 +200,7 @@ function Cart() {
                                     <NumberFormat
                                         thousandsGroupStyle="thousand"
                                         value={totalCartPrice}
-                                        prefix="$ "
+                                        prefix="Rp "
                                         displayType="text"
                                         thousandSeparator={true}
                                     />
