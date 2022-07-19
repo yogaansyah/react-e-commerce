@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import NumberFormat from 'react-number-format';
 // import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -20,22 +21,19 @@ function ProductDetail(props) {
         const product_slug = props.match.params.product;
 
         axios.get(`/api/viewproductdetail/${category_slug}/${product_slug}`).then((res) => {
-            if (isMounted)
-            {
-              if (res.data.status === 200)
-              {
-                setProduct(res.data.product);
+            if (isMounted) {
+                if (res.data.status === 200) {
+                    setProduct(res.data.product);
 
-                setLoading(false);
-              }
-              else if(res.data.status === 404)
-              {
-                history.push('/collections');
-                swal("Warning", res.data.message, "error")
-              }
+                    setLoading(false);
+                }
+                else if (res.data.status === 404) {
+                    history.push('/collections');
+                    swal("Warning", res.data.message, "error")
+                }
             }
 
-          });
+        });
 
         return () => {
             isMounted = false;
@@ -79,15 +77,12 @@ function ProductDetail(props) {
         });
     };
 
-    if (loading)
-    {
+    if (loading) {
         return <h4>Loading Products Details...</h4>
     }
-    else
-    {
+    else {
         var avail_stock = '';
-        if (product.qty > 0)
-        {
+        if (product.qty > 0) {
             avail_stock = <div>
                 <label className='btn-sm btn-success px-4 mt-2'>In Stock</label>
                 <div className="row">
@@ -104,8 +99,7 @@ function ProductDetail(props) {
                 </div>
             </div>
         }
-        else
-        {
+        else {
             avail_stock = <div>
                 <label className='btn-sm btn-danger px-4 mt-2'>Out of Stock</label>
             </div>
@@ -138,8 +132,22 @@ function ProductDetail(props) {
                                         </h4>
                                         <p> {product.description} </p>
                                         <h4 className='mb-1'>
-                                            $: {product.selling_price}
-                                            <s className='ms-2'> $: {product.original_price} </s>
+                                            <NumberFormat
+                                                thousandsGroupStyle="thousand"
+                                                value={product.selling_price}
+                                                prefix="Rp: "
+                                                displayType="text"
+                                                thousandSeparator={true}
+                                            />
+                                            <s className='ms-2'>
+                                                <NumberFormat
+                                                    thousandsGroupStyle="thousand"
+                                                    value={product.original_price}
+                                                    prefix="Rp: "
+                                                    displayType="text"
+                                                    thousandSeparator={true}
+                                                />
+                                            </s>
                                         </h4>
                                         <div>
                                             {avail_stock}

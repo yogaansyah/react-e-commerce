@@ -43,7 +43,7 @@ function ViewProduct() {
                     <td>{item.id}</td>
                     <td>{item.category.name}</td>
                     <td>{item.name}</td>
-                    <td>{item.selling_price}
+                    <td>
 
                         <NumberFormat
                             thousandsGroupStyle="thousand"
@@ -56,7 +56,7 @@ function ViewProduct() {
                     <td>
                         <img
                             src={`https://shielded-fjord-97601.herokuapp.com/uploads/product/${item.image}`}
-                            width="50px"
+                            width="125px"
                             alt={item.name}
                         />
                     </td>
