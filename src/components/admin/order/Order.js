@@ -28,13 +28,13 @@ function Order() {
     if (loading) {
         return <h4>Loading Orders...</h4>;
     } else {
-        // var ProdStatus = "";
+        var ProdStatus = "";
         display_orders = orders.map((item, i) => {
-            // if (item.status === "0") {
-            //     ProdStatus = "Shown";
-            // } else if (item.status === "1") {
-            //     ProdStatus = "Hidden";
-            // }
+            if (item.status === "0") {
+                ProdStatus = "Shown";
+            } else if (item.status === "1") {
+                ProdStatus = "Hidden";
+            }
 
             return (
                 <tr key={i}>
@@ -77,7 +77,7 @@ function Order() {
                             </tr>
                         </thead>
                         <tbody>
-                            {display_orders === 0 ? "Visible" : "Hidden"}
+                            {display_orders}
                         </tbody>
                     </table>
                 </div>
