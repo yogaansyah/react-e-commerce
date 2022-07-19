@@ -11,7 +11,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 
-axios.defaults.baseURL = "http://localhost:8000/";
+axios.defaults.baseURL = "https://shielded-fjord-97601.herokuapp.com/";
 axios.defaults.headers.post['Conten-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 

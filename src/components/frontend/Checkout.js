@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import NumberFormat from "react-number-format";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
@@ -340,9 +341,25 @@ function Checkout() {
                                     return (
                                         <tr key={index}>
                                             <td>{item.product.name}</td>
-                                            <td>{item.product.selling_price}</td>
+                                            <td>
+                                            <NumberFormat
+                                                    thousandsGroupStyle="thousand"
+                                                    value={item.product.selling_price}
+                                                    prefix="Rp "
+                                                    displayType="text"
+                                                    thousandSeparator={true}
+                                                />
+                                            </td>
                                             <td>{item.product_qty}</td>
-                                            <td>{item.product.selling_price * item.product_qty}</td>
+                                            <td>
+                                                <NumberFormat
+                                                    thousandsGroupStyle="thousand"
+                                                    value={item.product.selling_price * item.product_qty}
+                                                    prefix="Rp "
+                                                    displayType="text"
+                                                    thousandSeparator={true}
+                                                />
+                                            </td>
                                         </tr>
                                     );
                                 })}

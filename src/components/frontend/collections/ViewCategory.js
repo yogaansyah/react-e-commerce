@@ -41,9 +41,9 @@ function ViewCategory() {
       return (
         <div className="col-md-4" key={idx}>
           <div className="card text-center">
-            <Link to={`collections/${item.slug}`}>
+            {/* <Link to={`collections/${item.slug}`}>
               <img src={`https://shielded-fjord-97601.herokuapp.com/uploads/koleksi.jpg`} className="mx-auto w-24 h-24" width='120px' alt={item.name} />
-            </Link>
+            </Link> */}
             <div className="card-body text-center">
               <Link to={`collections/${item.slug}`}>
                 <h5>{item.name}</h5>

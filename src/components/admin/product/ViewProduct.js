@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
 
 function ViewProduct() {
@@ -42,7 +43,16 @@ function ViewProduct() {
                     <td>{item.id}</td>
                     <td>{item.category.name}</td>
                     <td>{item.name}</td>
-                    <td>{item.selling_price}</td>
+                    <td>{item.selling_price}
+
+                        <NumberFormat
+                            thousandsGroupStyle="thousand"
+                            value={item.selling_price}
+                            prefix="Rp "
+                            displayType="text"
+                            thousandSeparator={true}
+                        />
+                    </td>
                     <td>
                         <img
                             src={`https://shielded-fjord-97601.herokuapp.com/uploads/product/${item.image}`}
