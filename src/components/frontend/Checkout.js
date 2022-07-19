@@ -342,7 +342,7 @@ function Checkout() {
                                         <tr key={index}>
                                             <td>{item.product.name}</td>
                                             <td>
-                                            <NumberFormat
+                                                <NumberFormat
                                                     thousandsGroupStyle="thousand"
                                                     value={item.product.selling_price}
                                                     prefix="Rp "
@@ -368,7 +368,13 @@ function Checkout() {
                                         Grand Total
                                     </td>
                                     <td colSpan="2" className="text-end fw-bold">
-                                        {totalCartPrice}
+                                        <NumberFormat
+                                            thousandsGroupStyle="thousand"
+                                            value={totalCartPrice}
+                                            prefix="Rp "
+                                            displayType="text"
+                                            thousandSeparator={true}
+                                        />
                                     </td>
                                 </tr>
                             </tbody>
